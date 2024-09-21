@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { HeroHighlight } from "@/components/ui/hero-highlight";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -40,7 +41,7 @@ export default function RootLayout({
         >
           <HeroHighlight>
             <Navbar />
-            {children}
+            <TooltipProvider delayDuration={0}>{children}</TooltipProvider>
           </HeroHighlight>
         </ThemeProvider>
       </body>

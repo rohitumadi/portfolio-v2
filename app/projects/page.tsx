@@ -1,4 +1,10 @@
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { Badge } from "@/components/ui/badge";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { projects } from "@/data/constants";
 
 import Image from "next/image";
@@ -32,7 +38,19 @@ const page = () => {
                   />
                 </Link>
               </CardItem>
-              <div className="flex justify-center items-center mt-10">
+              <div className="flex justify-center gap-2 items-center mt-10 mb-5">
+                {project.tags.map((tag) => (
+                  <CardItem
+                    key={tag}
+                    translateZ={20}
+                    as="div"
+                    className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                  >
+                    <Badge>{tag}</Badge>
+                  </CardItem>
+                ))}
+              </div>
+              <div className="flex justify-center items-center ">
                 <CardItem
                   translateZ={20}
                   as={Link}
@@ -40,7 +58,14 @@ const page = () => {
                   target="__blank"
                   className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
                 >
-                  <FaLink />
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <FaLink size={20} />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Live Link</p>
+                    </TooltipContent>
+                  </Tooltip>
                 </CardItem>
                 <CardItem
                   translateZ={20}
@@ -49,7 +74,14 @@ const page = () => {
                   target="__blank"
                   className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
                 >
-                  <FaCodeBranch />
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <FaCodeBranch size={20} />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Git Link</p>
+                    </TooltipContent>
+                  </Tooltip>
                 </CardItem>
               </div>
             </CardBody>

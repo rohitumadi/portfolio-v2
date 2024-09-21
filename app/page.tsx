@@ -7,7 +7,6 @@ import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 
-
 export default function Home() {
   const Links = [
     {
@@ -48,7 +47,7 @@ export default function Home() {
           </Highlight>
         </p>
         <Cover className="">
-          <Link target="_blank" href="/resume/Rohit's Resume.pdf">
+          <Link target="_blank" href="/resume/Rohit_Umadi_resume.pdf">
             Download resume to know more
           </Link>
         </Cover>
